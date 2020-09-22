@@ -24,25 +24,26 @@ If you get an error but it doesn't provide enough information, you can turn on
 debug mode by starting your application using `DEBUG=<DEBUG_STRING> npm start`.
 [Setting debug strings](Setting-debug-strings.md) for details.
 
-## Running VS Code Tasks
-
-If you're using Visual Studio Code, refer to
-[Debugging with VS Code page](Debugging-with-vscode.md) for debugging tips.
-
 ## Running Tests with Mocha
 
 You can debug tests by running mocha commands as documented on page
 [Debugging with Mocha tests](Debugging-tests-with-mocha.md).
 
-## Resolving Binding Error
+## Resolving Common Seen Errors
+
+### Binding Error
 
 With high extensibility, a LoopBack application usually contains tens of
-bindings. A common error caused by missing bindings is "a binding key not
-bound", for example:
+bindings. It usually take a few iterations to setup all of them. A common seen
+binding error is "a binding key not bound", for example:
 
 ```
 500 Error: The key 'services.hasher' is not bound to any value in context application
 ```
+
+Here are some potential reasons:
+
+1. The key is not bound to any value.
 
 To fix it, you should set the value for the binding key in the application.
 
@@ -63,10 +64,23 @@ export class TodoListApplication extends BootMixin(
 }
 ```
 
+2. Incorrect injection key.
+
+When injecting a binding, make sure its name is correct. Especially for the ones
+following LoopBack artifact naming conventions. For example, the automatically
+bound services have their class name as `<ServiceName>Provider` and the binding
+key as `services.<ServiceName>`. So use `@inject('services.UserService')`
+instead of `@inject('services.UserServiceProvider')`.
+
 See more details in
 [Binding documentation page](https://loopback.io/doc/en/lb4/Binding.html).
 
-## Updating Compiled Files
+3. Missing components.
+
+If the binding is exported by a component, ensure the component is installed and
+binding is imported correctly.
+
+### Compiled Files not Updated
 
 The TypeScript application is compiled to JavaScript files and runs. Forgetting
 to rebuild could run into errors. Make sure you rebuild the project before
@@ -94,4 +108,4 @@ the latest source code as symbolically-linked dependencies. See its
 usage instructions.
 
 To submit the sample, you can create a LoopBack application and copy over the
-sandbox files, then publish it to the github.
+sandbox files, then publish it to the Github.

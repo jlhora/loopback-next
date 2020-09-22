@@ -30,6 +30,7 @@ See [Monorepo overview](./MONOREPO.md) for a list of all packages.
 - [Upgrading TypeScript/eslint](#upgrading-typescripteslint)
 - [How to test infrastructure changes](#how-to-test-infrastructure-changes)
 - [Renovate bot](#renovate-bot)
+- [Trouble Shooting](#trouble-shooting)
 
 ## Setting up development environment
 
@@ -938,3 +939,15 @@ in progress when new commits were added. If GitHub complains that RenovateBot's
 pull request is out of date, then just wait until it's rebased and checks are
 green. The bot usually updates pull requests every hour. Alternatively, tick the
 check-box in the pull request description or in "Update Dependencies" issue.
+
+## Troubleshooting
+
+If you are using Visual Studio Code, below are some tips to help you debug the
+tests. The monorepo `loopback-next` contains a folder `.vscode` at root level
+for VS Code related tasks. There are two predefined configurations defined in
+file `.vscode/launch.json`:
+
+- Run Mocha tests: Debug all tests inside the `/packages` folder.
+- Debug Current Test File: Only debug the tests inside the current open file.
+
+When start debugging, it will stop at any breakpoint triggered by the tests.
