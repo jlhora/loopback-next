@@ -30,7 +30,7 @@ See [Monorepo overview](./MONOREPO.md) for a list of all packages.
 - [Upgrading TypeScript/eslint](#upgrading-typescripteslint)
 - [How to test infrastructure changes](#how-to-test-infrastructure-changes)
 - [Renovate bot](#renovate-bot)
-- [Trouble Shooting](#trouble-shooting)
+- [Troubleshooting](#troubleshooting))
 
 ## Setting up development environment
 
