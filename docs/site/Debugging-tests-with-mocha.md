@@ -8,7 +8,7 @@ permalink: /doc/en/lb4/Debugging-tests-with-mocha.html
 
 ### Running Specific Tests
 
-To target on a single test case or test suite, you can use the `only` method as
+To run a single test case or test suite, you can use the `only` method as
 `describe.only()` or `it.only()`. And inversely, you can skip tests by using
 `describe.skip()` or `it.skip()`. The usage is well documented in
 [mocha exclusive tests](https://mochajs.org/#exclusive-tests) and

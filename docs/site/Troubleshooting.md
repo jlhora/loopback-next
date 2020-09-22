@@ -68,20 +68,21 @@ See more details in
 
 ## Updating Compiled Files
 
-The TypeScript application is compiled to JavaScript files and runs. Make sure
-you rebuild the project before re-running the application. By default, if you
-start the application using `npm start`, it rebuilds the project for you.
+The TypeScript application is compiled to JavaScript files and runs. Forgetting
+to rebuild could run into errors. Make sure you rebuild the project before
+re-running the application. By default, if you start the application using
+`npm start`, it rebuilds the project for you.
 
-Forgetting to rebuild could run into errors. For example, you deleted a
-Controller file but still get errors about the removed Controller during
-application startup, it implies the compiled JS files probably didn't get
-updated.
+In some cases, the compiled JS files might not get updated properly even you
+build the project. For example, you deleted a Controller file but still get
+errors about the removed Controller during application startup, it implies the
+compiled JS files probably didn't get updated.
 
 To fix it, run `npm run clean` to delete all the compiled files. By doing so, it
 forces the build to generate the compiled JS files next time when you start the
 application using `npm start` or call `npm run build`.
 
-## Submitting Problematic Code using Sandbox
+## Submitting Sample Application for Problem Determination
 
 If you couldn't figure out what is going wrong or would like to report an issue,
 you can submit a simplified application that contains the problematic code using
@@ -91,3 +92,6 @@ The `/sandbox` directory in the `loopback-next` monorepo can be used to utilize
 the latest source code as symbolically-linked dependencies. See its
 [README](https://github.com/strongloop/loopback-next/tree/master/sandbox) for
 usage instructions.
+
+To submit the sample, you can create a LoopBack application and copy over the
+sandbox files, then publish it to the github.
